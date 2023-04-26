@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CCLab Project</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script src="libraries/p5.min.js"></script>
+  <!-- Uncomment the line below if you use audio. -->
+  <!-- <script src="libraries/p5.sound.min.js"></script> -->
+</head>
+
+<body>
+  <button onclick="myFunction()">Click me!</button>
+
+<script>
+function myFunction() {
+  alert("Welcome!");
+}
+</script>
+
+  <div id="title"><h1>Matrix Generator</h1></div>
+
+  <!-- the following div will contain the p5 canvas. -->
+  <h1>iframes! multi canvas!</h1>
+    <iframe class="canvas2Frame" src="canvas2" frameborder="0"></iframe>
+    <br>
+    <br>
+    <iframe class="canvas1Frame" src="canvas1" frameborder="0"></iframe>
+
+ 
+
+  <div id="content"><p>
+    CLICK the canvas to start.
+    <br>
+    The original color of the shape is purple.
+    <br>
+    PRESS key “g/G” to change the color into green.
+    <br>
+    CLICK the mouse to turn the color back into purple.
+    <br>
+    “b/B” stands for “bigger”, “s/S” stands for “smaller”. Press the two buttons to change the stroke weight.
+  </p></div>
+
+  <!-- the script tag below should always be at the bottom, right before the closing body tag -->
+  <script src="sketch2.js"></script>
+  <script src="sketch.js"></script>
+ 
+</body>
+
+</html>
