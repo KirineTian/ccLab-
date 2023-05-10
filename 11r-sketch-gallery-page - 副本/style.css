@@ -1,0 +1,45 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#title{
+  margin-left: 1%;
+  color:aliceblue;
+}
+
+canvas {
+  display: block;
+}
+
+iframe{
+  width:100%;
+  height:100%
+}
+.canvas2Frame{
+  position:absolute;
+  top:20%
+}
+.canvas1Frame{
+  position:absolute;
+  top:50%-200px;
+  left: 35%;
+
+
+
+}
+
+
+#content{
+  margin-left: 0%;
+  margin-top: 30%;
+  text-align: center;
+  color:aliceblue;
+}
+
+body{
+  background-color:black;
+}
+
+
+

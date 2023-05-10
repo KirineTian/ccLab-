@@ -1,0 +1,57 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+  z-index: 1;
+  /* position: fixed;
+  top: 0;
+  left: 0; */
+}
+
+/* #canvasContainer{
+  width: 35%;
+} */
+
+#leftTop {
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+#rightTop{
+  position: absolute;
+  top:0;
+  right:0;
+}
+
+#leftBottom{
+  position: absolute;
+  bottom:0;
+  left:0;
+}
+
+#rightBottom{
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+#sketch1 {
+  position: absolute;
+  left: 25%;
+  padding: 25% 25%;
+  border-style: solid;
+  border-color:black;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: white;
+}
+
+#sketch2{
+  position:absolute;
+  left:50%;
+  bottom:0%;
+}
