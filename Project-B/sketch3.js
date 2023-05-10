@@ -1,44 +1,46 @@
-let mic, fft, hueHue, saturationSaturation;
-let colorValue = 0;
+let mic, fft;
+let prevX, prevY;
+let lineWidth = 10;
 
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
-  canvas.parent("canvasContainer");
-  background(255);
-  stroke(0);
+  canvas.parent(canvasContainer);
   mic = new p5.AudioIn();
   mic.start();
   fft = new p5.FFT();
   fft.setInput(mic);
-  // mouseClicked = function() {
-  //   hueHue = random(100);
-  //   saturationSaturation = random(100);
-  // }  
+  strokeWeight(lineWidth);
+  stroke(random(255), random(255), random(255));
 }
 
 function draw() {
-  let level = mic.getLevel();
+  // background(255);
   let spectrum = fft.analyze();
-  let peakFrequency = findPeakFreq(spectrum);
-  let xMove = map(peakFrequency, 150, 390, 0, width)
-  // let yMove = map(peakFrequency, 150, 390, 0, height)
-  let weight = map(level, 0, 1, 1, 40);
-  let hueHue = map(peakFrequency, 0, 1000, 100, 0);
-  let saturationSaturation = map(peakFrequency, 0, 1000, 100, 0);
-  let brightnessBrightness = map(peakFrequency, 0, 1000, 100, 0);
-  colorMode(HSB, 100);
-  strokeWeight(weight);
-  stroke(hueHue, saturationSaturation, brightnessBrightness);
-  line(random(level*400, level*1800), random(level*400, level*1800), mouseX, mouseY);
+  let pitch = map(mouseY, 0, height, 100, 2000);
+  let wave = map(lineWidth, 1, 30, 0.1, 1);
+  let vol = mic.getLevel() * wave;
+  stroke(random(255), random(255), random(255));
+  if (mouseIsPressed) {
+    line(prevX, prevY, mouseX, mouseY);
+    prevX = mouseX;
+    prevY = mouseY;
+    let osc = new p5.Oscillator(pitch, 'sine');
+    osc.amp(vol);
+    osc.start();
+    osc.stop(0.05);
+  } else {
+    prevX = mouseX;
+    prevY = mouseY;
+  }
+  // lineWidth = map(mouseWheelDelta, -200, 200, 1, 30);
+  strokeWeight(lineWidth);
 }
 
-function findPeakFreq(spectrum) {
-  let peakIndex = 0;
-  for (let i = 1; i < spectrum.length; i++) {
-    if (spectrum[i] > spectrum[peakIndex]) {
-      peakIndex = i;
-    }
-  }
-  let peakFreq = map(peakIndex, 0, spectrum.length, 0, 22050);
-  return peakFreq;
+function mouseWheel(event) {
+  // print(event.delta);
+  //move the square according to the vertical scroll amount
+  // pos += event.delta;
+  //uncomment to block page scrolling
+  //return false;
+  lineWidth = map(event.delta, -200, 200, 1, 30);
 }

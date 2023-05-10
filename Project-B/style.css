@@ -48,7 +48,13 @@ canvas {
   border-radius: 50%;
   cursor: pointer;
   background-color: white;
+  transition: background-color 1.2s ease
 }
+
+#sketch1:hover {
+  background-color: black;
+}
+
 
 #sketch2{
   position:absolute;
