@@ -63,7 +63,7 @@ class Note {
   }
   
 
-  attract(other, force) { // 计算吸引力并应用到当前音符
+  attract(other, force) { // 计算吸引力并应用到当前音符fu
     let dx = other.x - this.x;
     let dy = other.y - this.y;
     let angle = atan2(dy, dx);
