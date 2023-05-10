@@ -5,10 +5,13 @@ let lineWidth = 10;
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent(canvasContainer);
+
+  textFont("Bruno Ace");
+
   strokeWeight(4);
   line(97, 70, 97, height-135);
   line(width-100, 70, width-100, height-135);
-  line(400, 35, width-420, 35);
+  line(480, 35, width-500, 35);
   mic = new p5.AudioIn();
   mic.start();
   fft = new p5.FFT();
