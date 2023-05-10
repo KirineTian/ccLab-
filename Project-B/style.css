@@ -19,24 +19,28 @@ canvas {
   position: absolute;
   top:0;
   left:0;
+  color: black;
 }
 
 #rightTop{
   position: absolute;
   top:0;
   right:0;
+  color: black;
 }
 
 #leftBottom{
   position: absolute;
   bottom:0;
   left:0;
+  color: black;
 }
 
 #rightBottom{
   position:absolute;
   bottom:0;
   right:0;
+  color: black;
 }
 
 #sketch1 {
